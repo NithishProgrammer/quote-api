@@ -6,6 +6,8 @@ app = FastAPI()
 
 f = open("quotes.txt" , 'r')
 r = f.readlines()
+f2 = open("facts.txt" , 'r')
+r2 = f2.readlines()
 
 
 app.add_middleware(
@@ -20,3 +22,8 @@ app.add_middleware(
 @app.get("/quote")
 def get_quote():
     return {"Quote": random.choice(r)}
+
+@app.get("/fact")
+def get_fact():
+    return {"F-Fact": random.choice(r2)}
+
